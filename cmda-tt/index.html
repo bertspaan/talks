@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>D3.js & Observable</title>
+    <meta name="author" content="Bert Spaan">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/highlight-github-gist.css">
+    <link rel="stylesheet" href="css/theme.css" id="theme">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <section data-background-image="../../nypl-talks-assets/images/haarlem.png" class="title">
+          <h1>D3.js &amp; Observable</h1>
+          <h2>En alle gebouwen in Amsterdam</h2>
+        </section>
+
+        <section>
+          <div>Hallo! Ik ben <a href="https://bertspaan.nl">Bert Spaan</a>!</div>
+        </section>
+
+        <section data-background-image="../../nypl-talks-assets/images/haarlem.png">
+          <span class="caption">
+            <a href="http://code.waag.org/buildings/">
+              Alle 9.866.539 gebouwen in Nederland
+            </a>
+          </span>
+        </section>
+
+        <section data-background-image="images/staphorst.jpg">
+          <span class="caption">
+            <a href="http://code.waag.org/buildings/">
+              Alle 9.866.539 gebouwen in Nederland
+            </a>
+          </span>
+        </section>
+
+        <section data-background-image="images/mansholt.jpg">
+          <span class="caption">
+            <a href="http://code.waag.org/mansholt/">
+              Nederland zonder steden en wegen: akkers & percelen
+            </a>
+          </span>
+        </section>
+
+        <section>
+          <span class="caption">
+            <a href="http://maptime-ams.github.io/street-patterns/">
+              Patronen van wegen en straten
+            </a>
+          </span>
+          <img src="images/street-patterns-website.png" />
+        </section>
+
+        <section data-background-image="images/street-patterns.jpg">
+          <span class="caption">
+            <a href="http://maptime-ams.github.io/street-patterns/">
+              Patronen van wegen en straten
+            </a>
+          </span>
+        </section>
+
+        <section data-background-image="images/maptime-ams-waag.jpg">
+          <span class="caption">
+            <a href="http://maptime-ams.github.io/">
+              Maptime Amsterdam: meetup over digitale cartografie
+            </a>
+          </span>
+        </section>
+
+        <section>
+          <span class="caption">
+            <a href="http://maptime-ams.github.io/">
+              Maptime Amsterdam: meetup over digitale cartografie
+            </a>
+          </span>
+          <img src="images/maptime-ams-website.png" />
+        </section>
+
+        <section data-background-image="images/nypl.jpg">
+          <span class="caption">
+            <a href="http://spacetime.nypl.org">
+              The New York Public Library: NYC Space/Time Directory
+            </a>
+          </span>
+        </section>
+
+        <section>
+          <span class="caption">
+            <a href="http://spacetime.nypl.org">
+              The New York Public Library: NYC Space/Time Directory
+            </a>
+          </span>
+          <img src="../../nypl-talks-assets/images/qgis.gif" />
+        </section>
+
+        <section>
+          <img src="../../nypl-talks-assets/images/maps-by-decade.gif" />
+          <span class="caption">
+            <a href="http://spacetime.nypl.org/maps-by-decade">
+              Maps by Decade: historische kaarten van New York
+            </a>
+          </span>
+        </section>
+
+        <section>
+          <span class="caption">
+            <a href="http://spacetime.nypl.org">
+              The New York Public Library: NYC Space/Time Directory
+            </a>
+          </span>
+          <ul>
+            <li><a href="http://publicdomain.nypl.org/fifth-avenue/">Fifth Avenue: from Start to Finish</a></li>
+            <li><a href="https://bertspaan.nl/dutch-farmhouses-of-brooklyn/">Dutch Farmhouses of Brooklyn</a></li>
+            <li><a href="http://spacetime.nypl.org/the-changing-shoreline-of-nyc/">The Changing Shoreline of New York City</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <div>Wat is een goede datavisualitie?</div>
+        </section>
+
+        <section data-background-image="images/nytimes-tall-suburbs-mesa-800.jpg">
+          <span class="caption">
+            <a href="https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html">
+              New York Times: A Map of Every Building in America
+            </a>
+          </span>
+        </section>
+
+        <section>
+          <span class="caption">
+            <a href="https://www.nytimes.com/interactive/2018/09/19/upshot/facebook-county-friendships.html">
+              New York Times: Facebook County Friendships
+            </a>
+          </span>
+          <img src="images/nytimes-facebook-county-friendships.jpg" />
+        </section>
+
+        <section>
+          <span class="caption">
+            <a href="https://geoffboeing.com/2018/07/comparing-city-street-orientations/">
+              Geoff Boeing: Comparing US City Street Orientations
+            </a>
+          </span>
+          <img src="images/geoffboeing-city-street-orientations-world-osmnx.jpg" />
+        </section>
+
+        <section>
+          <span class="caption">
+            <a href="https://blog.mapbox.com/visualizing-street-orientations-on-an-interactive-map-1eefa6002afc">
+              Interactive Street Orientations with Mapbox GL
+            </a>
+          </span>
+          <img src="images/mapbox-street-orientation.png" />
+        </section>
+
+        <section>
+          <div>
+            <strong>Een goede datavisualitie neemt de toeschouwer mee op ontdekkingsreis!</strong>
+          </div>
+        </section>
+
+        <section>
+          <div>
+            Datavisualisatie in de browser - een korte geschiedenis:
+          </div>
+        </section>
+
+        <section>
+          <img src="images/excel.png" />
+          <span class="caption">
+            De tijd vóór SVG: plaatjes, zonder interactie
+          </span>
+        </section>
+
+        <section>
+          <span class="caption">
+            Scalable Vector Graphics
+          </span>
+          <pre><code data-trim data-noescape class="html">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot;&gt;
+  &lt;rect x=&quot;25&quot; y=&quot;25&quot; width=&quot;200&quot; height=&quot;200&quot; fill=&quot;lime&quot;
+    stroke-width=&quot;4&quot; stroke=&quot;pink&quot; /&gt;
+  &lt;circle cx=&quot;125&quot; cy=&quot;125&quot; r=&quot;75&quot; fill=&quot;orange&quot; /&gt;
+  &lt;polyline points=&quot;50,150 50,200 200,200 200,100&quot;
+    stroke=&quot;red&quot; stroke-width=&quot;4&quot; fill=&quot;none&quot; /&gt;
+  &lt;line x1=&quot;50&quot; y1=&quot;50&quot; x2=&quot;200&quot; y2=&quot;200&quot;
+    stroke=&quot;blue&quot; stroke-width=&quot;4&quot; /&gt;
+&lt;/svg&gt;</code></pre>
+        </section>
+
+        <section>
+          <span class="caption">
+            Scalable Vector Graphics
+          </span>
+          <pre><code data-trim data-noescape class="html">
+&lt;svg version=&quot;1.0&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;
+ width=&quot;316&quot; height=&quot;316&quot; viewBox=&quot;0 0 393 393&quot;&gt;
+  &lt;g transform=&quot;translate(0,393) scale(0.1,-0.1)&quot;
+    fill=&quot;#000000&quot; stroke=&quot;none&quot;&gt;
+   &lt;path d=&quot;M1790 3633 c-393 -21 -771 -110 -1130 -264 -164 -70 -335 -164 -334
+-182 1 -14 356 -630 375 -651 4 -5 57 17 118 48 388 198 783 287 1216 273 384
+-13 722 -101 1058 -275 63 -32 111 -52 116 -46 12 13 381 650 381 657 0 10
+-203 116 -324 169 -145 65 -430 160 -578 192 -298 67 -618 95 -898 79z&quot;/&gt;
+&lt;path d=&quot;M1170 2624 c-300 -89 -610 -276 -879 -532 l-84 -80 36 -32 37 -32
+110 101 c223 205 410 318 410 248 0 -8 -38 -71 -85 -141 -88 -131 -116 -196
+-94 -222 24 -29 75 -15 236 65 390 195 865 338 1003 301 69 -19 51 -37 -125
+-125 -171 -85 -308 -166 -470 -277 -152 -104 -141 -91 -117 -130 11 -18 45
+-77 76 -130 l56 -97 66 30 c153 69 467 141 624 143 113 1 150 -15 150 -63 0
+-73 -183 -255 -482 -479 -80 -60 -96 -76 -89 -90 30 -55 394 -679 401 -686 18
+-18 414 488 582 743 48 74 112 182 142 240 132 259 115 361 -75 444 -162 72
+-412 90 -790 56 -166 -15 -193 3 -122 82 71 79 304 170 671 263 212 54 229 60
+260 88 65 62 -14 137 -176 169 -82 15 -441 6 -575 -15 -265 -42 -520 -119
+-782 -235 -88 -38 -163 -67 -167 -65 -38 24 93 155 271 271 64 42 132 87 152
+100 82 54 65 113 -33 112 -29 0 -91 -11 -138 -25z&quot;/&gt;
+&lt;/g&gt;
+&lt;/svg&gt;</code></pre>
+        </section>
+
+        <section>
+          <div>
+            Voor D3.js was er <a href="http://mbostock.github.io/protovis/">Protovis</a> (ook gemaakt door Mike Bostock)
+          </div>
+        </section>
+
+        <section>
+          <span class="caption">
+            Protovis
+          </span>
+          <div>Geen directe toegang tot de DOM:</div>
+          <pre><code data-trim data-noescape class="js">
+vis.add(pv.Area)
+    .data(data)
+    .bottom(1)
+    .left(function(d) x(d.x))
+    .height(function(d) y(d.y))
+    .fillStyle("rgb(121,173,210)")
+  .anchor("top").add(pv.Line)
+    .lineWidth(3);</code></pre>
+      </section>
+
+      <section>
+        <span class="caption">
+          D3.js
+        </span>
+        <div>Directe toegang tot de DOM:</div>
+        <pre><code data-trim data-noescape class="js">
+const bar = svg.append("g")
+    .attr("fill", "steelblue")
+  .selectAll("rect")
+  .data(bins)
+  .enter().append("rect")
+    .attr("x", d => x(d.x0) + 1)
+    .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
+    .attr("y", d => y(d.length))
+    .attr("height", d => y(0) - y(d.length));</code></pre>
+      </section>
+
+
+      <section>
+        <span class="caption">
+          <a href="https://medium.com/@Elijah_Meeks/d3-is-not-a-data-visualization-library-67ba549e8520">
+            Elijah Meeks: D3 is not a Data Visualization Library
+          </a>
+        </span>
+        <img src="images/elijah-meeks-d3-api.png" />
+      </section>
+
+      <section>
+        <strong>Belangrijk</strong>: steeds meer websites maken gebruik van bibliotheken zoals React en Vue.
+        Sommige stukken van D3.js worden hierdoor minder belangrijk.
+      </section>
+
+      <section>
+        D3.js is goed te combineren met React en Vue, als je begrijpt uit welke onderdelen
+        D3.js bestaat.
+      </section>
+
+      <section>
+        Aan de slag: <strong>een gebouwenkaart van Amsterdam met Observable + D3.js</strong>
+      </section>
+
+      <section>
+        <span class="caption">
+          <a href="https://beta.observablehq.com/">
+            Observable: interactive JavaScript notebooks
+          </a>
+        </span>
+        <img src="images/observable-website.png" />
+      </section>
+
+
+      <section>
+        <a href="https://beta.observablehq.com/@bertspaan/gebouwen-in-amsterdam">
+          beta.observablehq.com/@bertspaan/gebouwen-in-amsterdam
+        </a>
+      </section>
+
+      </div>
+    </div>
+    <div id="caption-container">
+      <div id="caption">
+      </div>
+    </div>
+    <script src="js/head.load.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/highlight.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
