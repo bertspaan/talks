@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+  <script src="../js/leaflet-hash.js"></script>
+  <link rel="stylesheet" href="maps.css" />
+</head>
+<body>
+  <div id="map"></div>
+<script>
+	var map = L.map('map').setView([52.367, 4.915], 12)
+  var hash = new L.Hash(map)
+
+	var baseMaps = {
+		Achtergrondkaart: L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+			maxZoom: 18,
+			attribution: '',
+			id: 'mapbox.streets'
+		}).addTo(map)
+	}
+
+	var overlayMaps = {
+		'1985 - Dienst der Publieke Werken': L.tileLayer('https://images.huygens.knaw.nl/webmapper/maps/pw-1985/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: ''
+		}),
+    '1943 - Dienst der Publieke Werken': L.tileLayer('https://images.huygens.knaw.nl/webmapper/maps/pw-1943/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: ''
+		}).addTo(map),
+		'1909 - Dienst der Publieke Werken': L.tileLayer('https://images.huygens.knaw.nl/webmapper/maps/pw-1909/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: ''
+		}),
+		'1876 - Buurtatlas Loman': L.tileLayer('https://images.huygens.knaw.nl/webmapper/maps/loman/{z}/{x}/{y}.jpeg', {
+			maxZoom: 18,
+			attribution: ''
+		})
+
+	}
+
+	L.control.layers(baseMaps, overlayMaps, {
+		collapsed: false
+	}).addTo(map)
+</script>
+</body>
+</html>
