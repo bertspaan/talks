@@ -5,15 +5,23 @@ Reveal.initialize({
   center: true,
   transition: 'fade',
   width: 1280,
-  height: 800,
+  height: 1000,
+
   dependencies: [
-    { src:
-      'js/highlight.js',
+    {
+      src: '/talks/assets/js/prism.js',
       async: true,
-      callback: function() {
-        hljs.initHighlightingOnLoad()
+      callback: function () {
+        // hljs.initHighlightingOnLoad()
       }
     }
+    // {
+    //   src: 'js/highlight.js',
+    //   async: true,
+    //   callback: function () {
+    //     hljs.initHighlightingOnLoad()
+    //   }
+    // }
   ]
 })
 
@@ -79,3 +87,7 @@ function setCaption (index, slide) {
 }
 
 setCaption(getCurrentIndex(), Reveal.getCurrentSlide())
+
+document.getElementById('nypl') && document.getElementById('nypl').addEventListener('click', function () {
+  Reveal.next()
+})
